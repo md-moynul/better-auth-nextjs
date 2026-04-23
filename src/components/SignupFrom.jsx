@@ -13,9 +13,16 @@ const SignupFrom = () => {
     const {data , error} =await authClient.signUp.email({
       name: userData.name,
       email: userData.email,
-      password: userData.password
+      password: userData.password,
+      callbackURL : '/'
     })
     console.log('signup response :',data,error);
+    if(error){
+      alert('Error signup : '+error.message)
+    }
+    if(data){
+      alert('Signup successful ')
+    }
     
   };
   return (
